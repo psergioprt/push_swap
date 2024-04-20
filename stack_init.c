@@ -63,7 +63,7 @@ void	init_left_stack(t_stack_node **left_stack, char *argv[]) //Define a functio
 		num = ft_atol(argv[i]);
 		if (num > INT_MAX || num < INT_MIN)//Check for overflow
 			free_errors(left_stack);
-		if (error_duplicate(*left_stack, (int(num))
+		if (error_duplicate(*left_stack, (int(num))))
 			free_errors(left_stack);
 		append_node(left_stack, (int)num); //If no errors, append the node to the linked list by taking a pointer `a`, create a new node and assign `n` to that new node.
 		i++;
