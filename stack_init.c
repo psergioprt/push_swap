@@ -1,5 +1,12 @@
 #include "push_swap.h"
 
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
+}
+
 static	long	ft_atol(const char *s) //Define a function that converts every string into a long value
 {
 	long	result;
@@ -11,7 +18,7 @@ static	long	ft_atol(const char *s) //Define a function that converts every strin
 		s++;
 	if (*s == '-' || *s == '+')
 	{
-		if (* == '-')
+		if (*s == '-')
 			sign = -1;
 	}
 	while (ft_isdigit(*s))
@@ -52,13 +59,13 @@ void	init_left_stack(t_stack_node **left_stack, char *argv[]) //Define a functio
 	while (argv[i])
 	{
 		if (error_search(argv[i]))
-			free_errors(a);
+			free_errors(left_stack);
 		num = ft_atol(argv[i]);
 		if (num > INT_MAX || num < INT_MIN)//Check for overflow
-			free_errors(a);
-		if (error_duplicate(*a, (int(n))
-			free_errors(a);
-		append_node(a, (int)n); //If no errors, append the node to the linked list by taking a pointer `a`, create a new node and assign `n` to that new node.
+			free_errors(left_stack);
+		if (error_duplicate(*left_stack, (int(num))
+			free_errors(left_stack);
+		append_node(left_stack, (int)num); //If no errors, append the node to the linked list by taking a pointer `a`, create a new node and assign `n` to that new node.
 		i++;
 	}
 }
