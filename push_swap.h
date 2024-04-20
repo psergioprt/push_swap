@@ -31,6 +31,7 @@ void	init_left_stack(t_stack_node **left_stack, char *argv[]);
 //Nodes initiation
 
 //Stack utils
+t_stack_node	*find_last(t_stack_node *stack);
 
 //Commands
 
