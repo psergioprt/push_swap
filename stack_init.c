@@ -1,4 +1,4 @@
-//#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 static	long	ft_atol(const char *s) //Define a function that converts every string into a long value
 {
@@ -19,7 +19,7 @@ static	long	ft_atol(const char *s) //Define a function that converts every strin
 	return (result *sign);
 }
 
-static void	append_node(t_stack_node **stack, int n)//Define a function that searches for the last node to append to the linked list
+static void	append_node(t_stack_node **stack, int num)//Define a function that searches for the last node to append to the linked list
 {
 	t_stack_node	*node; //To store a pointer to the new node to be created with the value `n`
 	t_stack_node	*last_node; //To store a pointer to the current last node of the stack
@@ -30,7 +30,7 @@ static void	append_node(t_stack_node **stack, int n)//Define a function that sea
 	if (!node)
 		return ;
 	node->next = NULL; //Set the next pointer of the new node to NULL because it will be the last node in the list
-	node->nbr = n; //Set the `next` data of the new node to `n` value
+	node->nbr = num; //Set the `next` data of the new node to `n` value
 	if (!(*stack)) // Check if the stack is empty or currently pointing to NULL, indicating a first node needs to be found
 	{
 		*stack = node; //If empty, update the pointer *stack to point to the node, effectively making it the new head of the linked list
@@ -43,22 +43,18 @@ static void	append_node(t_stack_node **stack, int n)//Define a function that sea
 		node->prev = last_node; //Update the previous pointer of the new node and complete the appending
 	}
 }
-
-
-
-
-void	init_stack_a(t_stack_node **a, char **argv) //Define a function that initiates stack `a` by handling any errors and appending required nodes to complete a stack.
+void	init_left_stack(t_stack_node **left_stack, char *argv[]) //Define a function that initiates stack `a` by handling any errors and appending required nodes to complete a stack.
 {
-	long	n;
+	long	num;
 	int	i;
 
 	i = 0;
 	while (argv[i])
 	{
-		if (error_syntax(argv[i]))
+		if (error_search(argv[i]))
 			free_errors(a);
-		n = ft_atol(argv[i]);
-		if (n > INT_MAX || n < INT_MIN)//Check for overflow
+		num = ft_atol(argv[i]);
+		if (num > INT_MAX || num < INT_MIN)//Check for overflow
 			free_errors(a);
 		if (error_duplicate(*a, (int(n))
 			free_errors(a);

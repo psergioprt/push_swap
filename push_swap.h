@@ -3,16 +3,16 @@
 
 #include <stdbool.h>
 #include <limits.h>
-//#include "../libft/inc/libft.h"
-//#include "../libft/inc/ft_printf.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_stack_node
 {
 	int		nbr;
-	int		index;
-	int		push_cost;
-	bool		above_median;
-	bool		cheapest;
+	//int		index;
+	//int		push_cost;
+	//bool		above_median;
+	//bool		cheapest;
 
 	struct	s_stack_node *target_node;
 	struct	s_stack_node *next;
@@ -20,8 +20,13 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 //Handle errors
+int		error_search(char *str_n);
+int		error_duplicate(t_stack_node *left_stack, int num);
+void	free_stack(t_stack_node **stack);
+void	free_errors(t_stack_node **stack);
 
 //Stack initiation
+void	init_left_stack(t_stack_node **left_stack, char *argv[]);
 
 //Nodes initiation
 

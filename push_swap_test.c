@@ -27,7 +27,7 @@ void push (Stack *stack, int value) //Function to push onto the stack
 //Function to pop a value from the stack
 int	pop(Stack *stack)
 {
-	if (stack ->top == NULL)
+	if (stack->top == NULL)
 		return (-1);
 	int	value = stack->top->data;
 	Node *temp = stack->top;
@@ -64,6 +64,8 @@ void transferValues(Stack *source, Stack *destination)
 	}
 }
 
+
+
 int	main(int argc, char *argv[])
 {
 	if (argc < 2)
@@ -84,7 +86,7 @@ int	main(int argc, char *argv[])
 	{
 		value = atoi(argv[i]);
 		push(sourceStack, value);
-		i++::;
+		i++;
 	}
 	//Transfer values from source stack to destination stack
 	transferValues(sourceStack, destinationStack);
@@ -92,7 +94,11 @@ int	main(int argc, char *argv[])
 	//Print values in the destination stack (should be reversed)
 	printf("Values in destination stack (reversed):\n");
 	while (destinationStack->top != NULL)
-		printf("%d ", pop(destinationStack));
+		printf("Destiny %d ", pop(destinationStack));
+	printf("\n");
+	transferValues(destinationStack, sourceStack);
+	while (sourceStack->top != NULL)
+		printf("Source %d ", pop(sourceStack));
 	printf("\n");
 	free(sourceStack);
 	free(destinationStack);
