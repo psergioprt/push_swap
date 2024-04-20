@@ -4,7 +4,7 @@ int	error_search(char *str)
 {
 	if (!(*str == '+' || *str == '-' || (*str >= 48 && *str <= 57)))
 		return (1);
-	if (*str == '+' || *str == '-' && !(str[1] >= 48 && str[1] <= 57))
+	if ((*str == '+' || *str == '-') && !(str[1] >= 48 && str[1] <= 57))
 		return (1);
 	while (*++str)
 	{
