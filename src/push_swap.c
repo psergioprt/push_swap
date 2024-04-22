@@ -12,6 +12,7 @@ int	main(int argc, char *argv[])
 	/*else if	(argc == 2)
 		argv = split(argv[1], ' ');*/
 	init_left_stack(&left_stack, argv + 1);
+	print_stack(left_stack);
 	free_stack(&left_stack);
 	return (0);
 }
