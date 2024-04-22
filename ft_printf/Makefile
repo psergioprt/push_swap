@@ -1,30 +1,36 @@
 NAME = libftprintf.a
 
 AR	= ar crs
-
 CC	= cc
-CCFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 RM	= rm -rf
+SRCDIR	= src
+OBJDIR	= obj
+LIBFTDIR = Libft
+LIBFT	= $(LIBFTDIR)/libft.a
 
-SRC	= ft_printf.c \
+SRC	= $(wildcard $(SRCDIR)/*.c)
+OBJ	= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
+
 	  ft_strlen.c \
 	  ft_putchar.c \
 	  ft_putstr.c \
-	  ft_print_int.c \
-	  ft_print_int_u.c \
-	  ft_print_hex.c \
 	  ft_strchr.c \
-	  ft_print_ptr.c
-
-OBJ	= $(SRC:%.c=%.o)
 
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 
 all: $(NAME)
 
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -o$@ -c $<
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFTDIR)
+
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) -C $(LIBFTDIR) clean
 
 fclean: clean
 	$(RM) $(NAME)

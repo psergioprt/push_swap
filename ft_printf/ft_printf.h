@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:01:06 by pauldos-          #+#    #+#             */
-/*   Updated: 2023/11/20 15:01:14 by pauldos-         ###   ########.fr       */
+/*   Updated: 2024/04/22 21:51:14 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include "../Libft/libft.h"
 
 int		ft_printf(const char *format, ...);
 
