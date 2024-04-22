@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:59:41 by pauldos-          #+#    #+#             */
-/*   Updated: 2023/10/30 12:49:48 by pauldos-         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:11:55 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t destsize);
 size_t	ft_strlcat(char *dest, const char *src, size_t destsize);
+
+long	ft_atol(const char *s);
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

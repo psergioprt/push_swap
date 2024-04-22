@@ -1,31 +1,5 @@
 #include "push_swap.h"
 
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
-}
-
-static	long	ft_atol(const char *s) //Define a function that converts every string into a long value
-{
-	long	result;
-	int		sign;
-
-	result = 0;
-	sign = 1;
-	while (*s == 32 || (*s >= 9 && *s <= 13))
-		s++;
-	if (*s == '-' || *s == '+')
-	{
-		if (*s == '-')
-			sign = -1;
-	}
-	while (ft_isdigit(*s))
-		result = result * 10 + (*s++ - '0');
-	return (result *sign);
-}
-
 static void	append_node(t_stack_node **stack, int num)//Define a function that searches for the last node to append to the linked list
 {
 	t_stack_node	*node; //To store a pointer to the new node to be created with the value `n`

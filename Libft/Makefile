@@ -1,7 +1,7 @@
 NAME = libft.a
 
 CC	= cc
-CFFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 AR	= ar
 ARFLAGS	= -rcs
 RM	= rm
@@ -9,7 +9,7 @@ RMFLAGS = -f
 OBJDIR = obj
 
 SRC	= $(wildcard *.c)
-OBJ 	= $(patsubst :.c,$(OBJDIR)/%.o,$(notdir $(SRC)))
+OBJ 	= $(patsubst %.c,$(OBJDIR)/%.o,$(notdir $(SRC)))
 
 all: $(NAME)
 
@@ -18,9 +18,9 @@ $(NAME): $(OBJ)
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CFFLAGS) -o$@ -c $<
+	$(CC) $(CFLAGS) -o$@ -c $<
 clean:
-	$(RM) $(RMFLAGS) $(OBJDIR)
+	$(RM) $(RMFLAGS) $(OBJ)
 
 fclean: clean
 	$(RM) $(RMFLAGS) $(NAME)

@@ -5,6 +5,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <../Libft/libft.h>
 
 typedef struct s_stack_node
 {
