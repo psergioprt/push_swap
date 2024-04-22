@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 10:23:04 by pauldos-          #+#    #+#             */
-/*   Updated: 2023/11/16 11:05:25 by pauldos-         ###   ########.fr       */
+/*   Created: 2023/11/16 09:50:51 by pauldos-          #+#    #+#             */
+/*   Updated: 2023/11/16 11:04:55 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strchr(const char *str, int c)
+int	ft_putstr(char *str)
 {
-	while (*str)
+	int	len;
+
+	if (!str)
 	{
-		if (*str == (char)c)
-			return ((char *)&(*str));
-		str++;
+		write (1, "(null)", 6);
+		return (6);
 	}
-	return (0);
+	len = ft_strlen(str);
+	write (1, str, len);
+	return (len);
 }

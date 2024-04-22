@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 10:23:04 by pauldos-          #+#    #+#             */
-/*   Updated: 2023/11/16 11:05:25 by pauldos-         ###   ########.fr       */
+/*   Created: 2023/11/20 15:07:39 by pauldos-          #+#    #+#             */
+/*   Updated: 2023/11/20 15:07:43 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strchr(const char *str, int c)
+int	ft_putchar(char c)
 {
-	while (*str)
-	{
-		if (*str == (char)c)
-			return ((char *)&(*str));
-		str++;
-	}
-	return (0);
+	write (1, &c, 1);
+	return (1);
 }
