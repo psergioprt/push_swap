@@ -71,7 +71,7 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 
 	{
-		printf("Usage: %s <value1> <value2> ... <valueN>\n", argv[0]);
+		ft_printf("Usage: %s <value1> <value2> ... <valueN>\n", argv[0]);
 		return (1);
 	}
 	//Initialize source and destination stacks
@@ -92,14 +92,14 @@ int	main(int argc, char *argv[])
 	transferValues(sourceStack, destinationStack);
 
 	//Print values in the destination stack (should be reversed)
-	printf("Values in destination stack (reversed):\n");
+	ft_printf("Values in destination stack (reversed):\n");
 	while (destinationStack->top != NULL)
-		printf("Destiny %d ", pop(destinationStack));
-	printf("\n");
+		ft_printfz("Destiny %d ", pop(destinationStack));
+	ft_printfz("\n");
 	transferValues(destinationStack, sourceStack);
 	while (sourceStack->top != NULL)
-		printf("Source %d ", pop(sourceStack));
-	printf("\n");
+		ft_printfz("Source %d ", pop(sourceStack));
+	ft_printfz("\n");
 	free(sourceStack);
 	free(destinationStack);
 	return (0);
