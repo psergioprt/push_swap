@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 t_stack_node	*find_last(t_stack_node *stack)
 {

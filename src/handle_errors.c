@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	error_search(char *str)
 {
@@ -11,7 +11,7 @@ int	error_search(char *str)
 		if (!(*str >= 48 && *str <= 57))
 			return (1);
 	}
-	return (0);		
+	return (0);
 }
 
 int	error_duplicate(t_stack_node *left_stack, int num)
