@@ -3,8 +3,8 @@
 
 #include <stdbool.h>
 #include <limits.h>
-#include "../Libft/libft.h"
-#include "../ft_printf/ft_printf.h"
+#include "../util_funcs/Libft/libft.h"
+#include "../util_funcs/ft_printf/ft_printf.h"
 
 typedef struct s_stack_node
 {
