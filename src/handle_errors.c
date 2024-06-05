@@ -1,28 +1,30 @@
 #include "../include/push_swap.h"
 
-int	error_search(char *str)
+int	validate_syntax(char *str)
 {
-	if (!(*str == '+' || *str == '-' || (*str >= 48 && *str <= 57)))
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
-	if ((*str == '+' || *str == '-') && !(str[1] >= 48 && str[1] <= 57))
+	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
-	while (*++str)
+	str++;
+	while (*str)
 	{
-		if (!(*str >= 48 && *str <= 57))
+		if (!(*str >= '0' && *str <= '9'))
 			return (1);
+		str++;
 	}
 	return (0);
 }
 
-int	error_duplicate(t_stack_node *left_stack, int num)
+int	validate_duplicate(t_stack_node *a, int n)
 {
-	if (!left_stack)
+	if (!a)
 		return (0);
-	while (left_stack)
+	while (a)
 	{
-		if (left_stack->nbr == num)
+		if (a->nbr == n)
 			return (1);
-		left_stack = left_stack->next;
+		a = a->next;
 	}
 	return (0);
 }
@@ -45,9 +47,9 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **stack)
+void	free_errors(t_stack_node **a)
 {
-	free_stack(stack);
-	printf("Error\n");
+	free_stack(a);
+	ft_printf("Error\n");
 	exit(1);
 }
