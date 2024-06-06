@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 16:01:22 by pauldos-          #+#    #+#             */
+/*   Updated: 2024/06/06 16:01:37 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 static void	push(t_stack_node **dst, t_stack_node **src)
@@ -26,8 +38,8 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 
 void	pa(t_stack_node **a, t_stack_node **b, bool output)
 {
-	push(a, b); 
-	if (output) 
+	push(a, b);
+	if (output)
 		ft_printf("pa\n");
 }
 

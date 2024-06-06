@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 16:08:14 by pauldos-          #+#    #+#             */
+/*   Updated: 2024/06/06 16:14:08 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 static int	count_words(char *s, char c)
@@ -46,7 +58,7 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
-char **split(char *s, char c)
+char	**split(char *s, char c)
 {
 	int		words_count;
 	char	**result_array;
@@ -74,4 +86,3 @@ char **split(char *s, char c)
 	result_array[i] = NULL;
 	return (result_array);
 }
-

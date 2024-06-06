@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_b_to_a.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 16:09:31 by pauldos-          #+#    #+#             */
+/*   Updated: 2024/06/06 16:09:43 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
@@ -12,7 +24,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->nbr > b->nbr 
+			if (current_a->nbr > b->nbr
 				&& current_a->nbr < best_match_index)
 			{
 				best_match_index = current_a->nbr;

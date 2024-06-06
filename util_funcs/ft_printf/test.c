@@ -1,14 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 16:19:40 by pauldos-          #+#    #+#             */
+/*   Updated: 2024/06/06 16:28:33 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int main(void)
+int	main(void)
 {
-  int n = 0;
-  char *str = "My name is Luka!";
+	int		n;
+	char	*str;
 
-  while (n < 10)
-  {
-    ft_printf("#%d -> %s\n", n, str);
-    n++;
-  }
-  return (0);
+	n = 0;
+	str = "My name is Luka!";
+	while (n < 10)
+	{
+		ft_printf("#%d -> %s\n", n, str);
+		n++;
+	}
+	return (0);
 }

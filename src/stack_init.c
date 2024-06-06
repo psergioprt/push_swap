@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 16:07:01 by pauldos-          #+#    #+#             */
+/*   Updated: 2024/06/06 16:11:43 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 static long	ft_atol(const char *s)
@@ -6,7 +18,7 @@ static long	ft_atol(const char *s)
 	int		sign;
 
 	result = 0;
-	sign = 1; 
+	sign = 1;
 	while (*s == ' ' || *s == '\t' || *s == '\n' || \
 			*s == '\r' || *s == '\f' || *s == '\v')
 		s++;
@@ -60,7 +72,7 @@ void	init_left_stack(t_stack_node **a, char **argv)
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
 		if (validate_duplicate(*a, (int)n))
-			free_errors(a); 
+			free_errors(a);
 		append_node(a, (int)n);
 		i++;
 	}
@@ -98,6 +110,6 @@ void	prep_for_push(t_stack_node **stack,
 				rb(stack, true);
 			else
 				rrb(stack, true);
-		}	
+		}
 	}
 }

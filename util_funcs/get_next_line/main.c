@@ -1,22 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 16:31:54 by pauldos-          #+#    #+#             */
+/*   Updated: 2024/06/06 16:35:02 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
-#include <fcntl.h>  // For open()
-#include <stdio.h>  // For printf()
-#include <stdlib.h>  // For malloc() and free()
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int main(void) {
-    char *str;
-    int fd;
+int	main(void)
+{
+	char	*str;
+	int		fd;
 
-    fd = open("test.txt", O_RDONLY);  // Open file in read-only mode
-    if (fd == -1) {
-        perror("Error opening file");
-        return 1;
-    }
-    while ((str = get_next_line(fd)) != NULL) {  // Read until EOF
-        printf("%s", str);  // Print the line
-        free(str);  // Free the line memory
-    }
-    close(fd);  // Close the file
-    return 0;
+	fd = open("test.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Error opening file");
+		return (1);
+	}
+	while ((str = get_next_line(fd)) != NULL)
+	{
+		printf("%s", str);
+		free(str);
+	}
+	close(fd);
+	return (0);
 }
-

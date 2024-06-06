@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/06 16:14:54 by pauldos-          #+#    #+#             */
+/*   Updated: 2024/06/06 16:57:15 by pauldos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -18,7 +30,7 @@ typedef struct s_stack_node
 	struct s_stack_node	*prev;
 }	t_stack_node;
 
-int				validate_syntax(char *str_n); 
+int				validate_syntax(char *str_n);
 int				validate_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
@@ -37,7 +49,7 @@ t_stack_node	*find_last(t_stack_node *stack);
 bool			stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
-char	**split(char *s, char c);
+char			**split(char *s, char c);
 
 void			sa(t_stack_node **a, bool print);
 void			sb(t_stack_node **b, bool print);
@@ -53,5 +65,12 @@ void			pb(t_stack_node **b, t_stack_node **a, bool print);
 
 void			sort_three(t_stack_node **a);
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
+
+void	rotate_both(t_stack_node **a,
+						t_stack_node **b,
+						t_stack_node *cheapest_node);
+void	rev_rotate_both(t_stack_node **a,
+								t_stack_node **b,
+								t_stack_node *cheapest_node);
 
 #endif
