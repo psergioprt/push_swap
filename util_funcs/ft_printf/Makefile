@@ -6,6 +6,14 @@ CC	= cc
 CCFLAGS = -Wall -Wextra -Werror
 RM	= rm -rf
 
+# Define color codes
+COLOUR_GREEN=\033[0;32m
+COLOUR_RED=\033[0;31m
+COLOUR_BLUE=\033[0;34m
+COLOUR_RESET=\033[0m
+
+.SILENT:
+
 SRC	= ft_printf.c \
 	  ft_printf_strlen.c \
 	  ft_printf_putchar.c \
@@ -19,14 +27,17 @@ SRC	= ft_printf.c \
 OBJ	= $(SRC:%.c=%.o)
 
 $(NAME): $(OBJ)
+	@echo "$(COLOUR_GREEN)=>Linking objects...$(COLOUR_RESET)"
 	$(AR) $(NAME) $(OBJ)
 
 all: $(NAME)
 
 clean:
+	@echo "$(COLOUR_RED)=> Cleaning ft_printf library...$(COLOUR_RESET)"
 	$(RM) $(OBJ)
 
 fclean: clean
+	@echo "$(COLOUR_RED)=> Cleaning ft_printf library...$(COLOUR_RESET)"
 	$(RM) $(NAME)
 
 re: fclean all

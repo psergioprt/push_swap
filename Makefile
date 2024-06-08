@@ -33,7 +33,7 @@ OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 # Main target of the Makefile (push_swap), depends on Objs and Libft
 # compiles the source files, links them to Libft and ft_printf Library
 # and produces push_swap executable
-$(TARGET): $(OBJS) $(LIBFT) $(PRINTF)
+$(TARGET): $(OBJS) $(LIBFT) $(PRINTF) $(GNL)
 	@echo "$(COLOUR_GREEN)=>Linking objects...$(COLOUR_RESET)"
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
@@ -44,6 +44,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# To ensure GNL library is built by invoking make if GNLDIR
+$(GNL):
+	$(MAKE) -C $(GNLDIR)
+
 # To ensure Libft library is built by invoking make in LIBFDIR
 $(LIBFT):
 	$(MAKE) -C $(LIBFTDIR)
@@ -52,15 +56,11 @@ $(LIBFT):
 $(PRINTF):
 	$(MAKE) -C $(PRINTF_DIR)
 
-# To ensure Libft library is built by invoking make if GNLDIR
-$(GNL):
-	$(MAKE) -C $(GNLDIR)
-
 # Removes all object files, the push_swap executable and Libft library
 # Rebuilds Libft library
 clean:
 	@echo "$(COLOUR_RED)=> Cleaning Push_swap library...$(COLOUR_RESET)"
-	@$(RM) -rf $(OBJDIR) $(TARGET)
+	@$(RM) -r $(OBJDIR)
 	@echo "$(COLOUR_RED)=> Cleaning Libft library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(LIBFTDIR) clean
 	@echo "$(COLOUR_RED)=> Cleaning ft_printf library...$(COLOUR_RESET)"
@@ -68,11 +68,21 @@ clean:
 	@echo "$(COLOUR_RED)=> Cleaning get_next_line library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(GNLDIR) clean
 
+fclean:
+	@echo "$(COLOUR_RED)=> Cleaning Push_swap library...$(COLOUR_RESET)"
+	@$(RM) -rf $(OBJDIR) $(TARGET)
+	@echo "$(COLOUR_RED)=> Cleaning Libft library...$(COLOUR_RESET)"
+	@$(MAKE) -C $(LIBFTDIR) fclean
+	@echo "$(COLOUR_RED)=> Cleaning ft_printf library...$(COLOUR_RESET)"
+	@$(MAKE) -C $(PRINTF_DIR) fclean
+	@echo "$(COLOUR_RED)=> Cleaning get_next_line library...$(COLOUR_RESET)"
+	@$(MAKE) -C $(GNLDIR) fclean
+
 rebuild_libs:
 	@echo "$(COLOUR_BLUE)=>Compiling Libraries...$(COLOUR_RESET)"
 	$(LIBFT) $(PRINTF) $(GNL)
 
 # Clean is a phony target, which means it doesn't output a file
 # with the same name "clean".
-.PHONY: clean rebuild_libs deploy
+.PHONY: clean fclean rebuild_libs deploy
 deploy:
