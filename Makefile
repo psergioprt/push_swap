@@ -20,6 +20,7 @@ LDFLAGS = -L$(LIBFTDIR) -lft -L$(PRINTF_DIR) -lftprintf -L$(GNLDIR) -l:next_line
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
+COLOUR_YELLOW=\033[0;33m
 COLOUR_RESET=\033[0m
 
 .SILENT:
@@ -59,30 +60,29 @@ $(PRINTF):
 # Removes all object files, the push_swap executable and Libft library
 # Rebuilds Libft library
 clean:
-	@echo "$(COLOUR_RED)=> Cleaning Push_swap library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning Push_swap library...$(COLOUR_RESET)"
 	@$(RM) -r $(OBJDIR)
-	@echo "$(COLOUR_RED)=> Cleaning Libft library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning Libft library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(LIBFTDIR) clean
-	@echo "$(COLOUR_RED)=> Cleaning ft_printf library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning ft_printf library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(PRINTF_DIR) clean
-	@echo "$(COLOUR_RED)=> Cleaning get_next_line library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning get_next_line library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(GNLDIR) clean
 
 fclean:
-	@echo "$(COLOUR_RED)=> Cleaning Push_swap library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning Push_swap library...$(COLOUR_RESET)"
 	@$(RM) -rf $(OBJDIR) $(TARGET)
-	@echo "$(COLOUR_RED)=> Cleaning Libft library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning Libft library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(LIBFTDIR) fclean
-	@echo "$(COLOUR_RED)=> Cleaning ft_printf library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning ft_printf library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(PRINTF_DIR) fclean
-	@echo "$(COLOUR_RED)=> Cleaning get_next_line library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning get_next_line library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(GNLDIR) fclean
 
-rebuild_libs:
-	@echo "$(COLOUR_BLUE)=>Compiling Libraries...$(COLOUR_RESET)"
-	$(LIBFT) $(PRINTF) $(GNL)
+re:	fclean $(TARGET)
 
 # Clean is a phony target, which means it doesn't output a file
 # with the same name "clean".
-.PHONY: clean fclean rebuild_libs deploy
+.PHONY: clean fclean deploy re
 deploy:
+

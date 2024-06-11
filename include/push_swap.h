@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:14:54 by pauldos-          #+#    #+#             */
-/*   Updated: 2024/06/06 16:57:15 by pauldos-         ###   ########.fr       */
+/*   Updated: 2024/06/11 10:26:56 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,9 @@ void			pb(t_stack_node **b, t_stack_node **a, bool print);
 void			sort_three(t_stack_node **a);
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
 
-void	rotate_both(t_stack_node **a,
-						t_stack_node **b,
-						t_stack_node *cheapest_node);
-void	rev_rotate_both(t_stack_node **a,
-								t_stack_node **b,
-								t_stack_node *cheapest_node);
+void			rotate_both(t_stack_node **a, t_stack_node **b,
+					t_stack_node *cheapest_node);
+void			rev_rotate_both(t_stack_node **a, t_stack_node **b,
+					t_stack_node *cheapest_node);
 
 #endif

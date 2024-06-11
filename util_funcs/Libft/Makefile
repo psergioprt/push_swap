@@ -12,6 +12,7 @@ OBJDIR = obj
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
+COLOUR_YELLOW=\033[0;33m
 COLOUR_RESET=\033[0m
 
 .SILENT:
@@ -30,11 +31,11 @@ $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -o$@ -c $<
 clean:
-	@echo "$(COLOUR_RED)=> Cleaning Libft library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning Libft library...$(COLOUR_RESET)"
 	$(RM) $(RMFLAGS) $(OBJ)
 
 fclean: clean
-	@echo "$(COLOUR_RED)=> Cleaning Libft library...$(COLOUR_RESET)"
+	@echo "$(COLOUR_YELLOW)=> Cleaning Libft library...$(COLOUR_RESET)"
 
 	$(RM) $(RMFLAGS) $(NAME)
 
