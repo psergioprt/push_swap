@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:08:31 by pauldos-          #+#    #+#             */
-/*   Updated: 2024/06/06 16:08:44 by pauldos-         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:13:45 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, false);
+			sa(&a, true);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
 		else
