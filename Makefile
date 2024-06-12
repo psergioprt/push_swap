@@ -1,6 +1,6 @@
 # Variable definition
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(INCDIR) -Iutil_funcs/Libft  -Iutil_funcs/ft_printf -Iutil_funcs/get_next_line
+CFLAGS = -g -Wall -Wextra -Werror -I$(INCDIR) -Iutil_funcs/Libft  -Iutil_funcs/ft_printf -Iutil_funcs/get_next_line
 TARGET = push_swap
 SRCDIR = src
 OBJDIR = obj
