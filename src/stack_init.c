@@ -71,19 +71,20 @@ void	init_left_stack(t_stack_node **a, char **argv)
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
-		if (validate_duplicate(*a, (int)n) == 1)
+		if (validate_duplicate(*a, (int)n))
 			free_errors(a);
 		append_node(a, (int)n);
 		i++;
 	}
 }
-
 void	ft_free_args(char **argv, bool flag)
 {
-	if (flag == true)
+	if (flag == false)
 	{
-		int i = 0;
-		while(argv[i])
+		int	i;
+
+		i = 0;
+		while (argv[i])
 		{
 			free(argv[i]);
 			i++;

@@ -35,10 +35,10 @@ int	validate_duplicate(t_stack_node *a, int n)
 	while (a)
 	{
 		if (a->nbr == n)
-			return (0);
+			return (1);
 		a = a->next;
 	}
-	return (1);
+	return (0);
 }
 
 void	free_stack(t_stack_node **stack)
