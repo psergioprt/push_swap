@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:07:01 by pauldos-          #+#    #+#             */
-/*   Updated: 2024/06/06 16:11:43 by pauldos-         ###   ########.fr       */
+/*   Updated: 2024/06/13 10:56:57 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	append_node(t_stack_node **stack, int n)
 		return ;
 	node->next = NULL;
 	node->nbr = n;
+	node->cheapest = false;
 	if (!(*stack))
 	{
 		*stack = node;
@@ -58,7 +59,7 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_left_stack(t_stack_node **a, char **argv)
+void	init_left_stack(t_stack_node **a, char **argv, bool flag)
 {
 	long	n;
 	int		i;
@@ -67,19 +68,28 @@ void	init_left_stack(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (validate_syntax(argv[i]))
+		{
+			ft_free_args(argv, flag);
 			free_errors(a);
+		}
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
+		{
+			ft_free_args(argv, flag);
 			free_errors(a);
+		}
 		if (validate_duplicate(*a, (int)n))
+		{
+			ft_free_args(argv, flag);
 			free_errors(a);
+		}
 		append_node(a, (int)n);
 		i++;
 	}
-}
+} 
 void	ft_free_args(char **argv, bool flag)
 {
-	if (flag == false)
+	if (flag == true)
 	{
 		int	i;
 

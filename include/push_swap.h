@@ -35,7 +35,7 @@ int				validate_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
 
-void			init_left_stack(t_stack_node **a, char **argv);
+void			init_left_stack(t_stack_node **a, char **argv, bool flag);
 
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
 void			init_nodes_b(t_stack_node *a, t_stack_node *b);

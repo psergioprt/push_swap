@@ -85,4 +85,5 @@ char	**split(char *s, char c)
 	}
 	result_array[i] = NULL;
 	return (result_array);
+	free(result_array);
 }

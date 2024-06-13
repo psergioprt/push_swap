@@ -65,3 +65,14 @@ void	free_errors(t_stack_node **a)
 	ft_printf("Error\n");
 	exit(1);
 }
+
+void free_args(char **str)
+{
+	int c = 0;
+	while(str[c])
+	{
+		free(str[c]);
+		c++;
+	}
+	free(str);
+}
