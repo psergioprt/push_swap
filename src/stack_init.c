@@ -86,21 +86,6 @@ void	init_left_stack(t_stack_node **a, char **argv, bool flag)
 		append_node(a, (int)n);
 		i++;
 	}
-} 
-void	ft_free_args(char **argv, bool flag)
-{
-	if (flag == true)
-	{
-		int	i;
-
-		i = 0;
-		while (argv[i])
-		{
-			free(argv[i]);
-			i++;
-		}
-		free(argv);
-	}
 }
 
 t_stack_node	*get_cheapest(t_stack_node *stack)

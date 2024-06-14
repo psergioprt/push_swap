@@ -34,6 +34,7 @@ int				validate_syntax(char *str_n);
 int				validate_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
+void			ft_free_args(char **argv, bool flag);
 
 void			init_left_stack(t_stack_node **a, char **argv, bool flag);
 
@@ -49,7 +50,6 @@ t_stack_node	*find_last(t_stack_node *stack);
 bool			stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
-char			**split(char *s, char c);
 
 void			sa(t_stack_node **a, bool print);
 void			sb(t_stack_node **b, bool print);
@@ -70,7 +70,5 @@ void			rotate_both(t_stack_node **a, t_stack_node **b,
 					t_stack_node *cheapest_node);
 void			rev_rotate_both(t_stack_node **a, t_stack_node **b,
 					t_stack_node *cheapest_node);
-
-void	ft_free_args(char **argv, bool flag);
 
 #endif

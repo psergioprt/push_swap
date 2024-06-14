@@ -66,13 +66,15 @@ void	free_errors(t_stack_node **a)
 	exit(1);
 }
 
-void free_args(char **str)
+void	free_args(char **str)
 {
-	int c = 0;
-	while(str[c])
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		free(str[c]);
-		c++;
+		free(str[i]);
+		i++;
 	}
 	free(str);
 }

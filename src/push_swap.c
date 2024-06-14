@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-bool	number_validator(char *argv)
+static bool	validate_numbers_signs(char *argv)
 {
 	int	i;
 
@@ -21,7 +21,6 @@ bool	number_validator(char *argv)
 	{
 		while (argv[i] == '-' || argv[i] == '+')
 		{
-			
 			if (argv[i] == '-' || argv[i] == '+')
 				i++;
 			if (argv[i] < '0' || argv[i] > '9')
@@ -33,16 +32,50 @@ bool	number_validator(char *argv)
 	return (true);
 }
 
-bool	validate_number(char *argv)
+static bool	validate_arguments(char argc, char ***argv)
 {
-	int	i = 0;
-	while (argv[i])
+	if (argc == 1)
+		return (false);
+	if (argc == 2 && (*argv)[1][0] == ' ')
 	{
-		if (argv[i] < '0' || argv[i] > '9')
-			return (false);
-		i++;
+		ft_printf("Error\n");
+		return (false);
+	}
+	if (argc == 2 && ((*argv)[1][0] == '\0'
+		|| validate_numbers_signs((*argv)[1]) == false))
+	{
+		ft_printf("Error\n");
+		return (false);
 	}
 	return (true);
+}
+
+static bool	initiate_stack(char argc, char ***argv, t_stack_node **a)
+{
+	if (argc == 2)
+	{
+		*argv = ft_split((*argv)[1], ' ');
+		init_left_stack(a, *argv, true);
+	}
+	else
+		init_left_stack(a, *argv + 1, false);
+	return (true);
+}
+
+void	ft_free_args(char **argv, bool flag)
+{
+	int	i;
+
+	i = 0;
+	if (flag == true)
+	{
+		while (argv[i])
+		{
+			free(argv[i]);
+			i++;
+		}
+		free(argv);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -52,26 +85,10 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1)
+	if (!validate_arguments(argc, &argv))
 		return (1);
-	/*if (argc == 2 && argv[1][0] == ' ')
-	{
-		printf("Error\n");
+	if (!initiate_stack(argc, &argv, &a))
 		return (1);
-	}*/
-	else if (argc == 2 && (argv[1][0] == '\0' || number_validator(argv[1]) == false))
-	{
-		printf("Error\n");
-		return (1);
-	}
-	
-	if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		init_left_stack(&a, argv, true);
-	}
-	else
-		init_left_stack(&a, argv + 1, false);
 	ft_free_args(argv, argc == 2);
 	if (!stack_sorted(a))
 	{
