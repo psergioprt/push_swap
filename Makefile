@@ -1,7 +1,7 @@
 # Variable definition
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror -I$(INCDIR) -Iutil_funcs/Libft  -Iutil_funcs/ft_printf -Iutil_funcs/get_next_line
-TARGET = push_swap
+NAME = push_swap
 SRCDIR = src
 OBJDIR = obj
 INCDIR = include
@@ -25,6 +25,8 @@ COLOUR_RESET=\033[0m
 
 .SILENT:
 
+all:$(NAME)
+
 # wildcard to find all sources files
 SRC = 	$(wildcard $(SRCDIR)/*.c)
 
@@ -34,13 +36,13 @@ OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 # Main target of the Makefile (push_swap), depends on Objs and Libft
 # compiles the source files, links them to Libft and ft_printf Library
 # and produces push_swap executable
-$(TARGET): $(OBJS) $(LIBFT) $(PRINTF) $(GNL)
+$(NAME): $(OBJS) $(LIBFT) $(PRINTF) $(GNL)
 	@echo "$(COLOUR_GREEN)=>Linking objects...$(COLOUR_RESET)"
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Generate object files from source files.
 # Compiles each .c in the SRCDIR into corresponding .o file in OBJDIR
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(wildcard $(INCDIR)/*.h)
 	@echo "$(COLOUR_BLUE)=>Compiling Push_swap...$(COLOUR_RESET)"
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -71,7 +73,7 @@ clean:
 
 fclean:
 	@echo "$(COLOUR_YELLOW)=> Cleaning Push_swap library...$(COLOUR_RESET)"
-	@$(RM) -rf $(OBJDIR) $(TARGET)
+	@$(RM) -rf $(OBJDIR) $(NAME)
 	@echo "$(COLOUR_YELLOW)=> Cleaning Libft library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(LIBFTDIR) fclean
 	@echo "$(COLOUR_YELLOW)=> Cleaning ft_printf library...$(COLOUR_RESET)"
@@ -79,10 +81,10 @@ fclean:
 	@echo "$(COLOUR_YELLOW)=> Cleaning get_next_line library...$(COLOUR_RESET)"
 	@$(MAKE) -C $(GNLDIR) fclean
 
-re:	fclean $(TARGET)
+re:	fclean all
 
 # Clean is a phony target, which means it doesn't output a file
 # with the same name "clean".
-.PHONY: clean fclean deploy re
+.PHONY: clean fclean deploy re all
 deploy:
 
