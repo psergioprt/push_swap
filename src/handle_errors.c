@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:01:52 by pauldos-          #+#    #+#             */
-/*   Updated: 2024/06/06 16:02:02 by pauldos-         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:50:22 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	free_stack(t_stack_node **stack)
 void	free_errors(t_stack_node **a)
 {
 	free_stack(a);
-	write(2,"Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
