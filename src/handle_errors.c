@@ -62,7 +62,7 @@ void	free_stack(t_stack_node **stack)
 void	free_errors(t_stack_node **a)
 {
 	free_stack(a);
-	ft_printf("Error\n");
+	write(2,"Error\n", 6);
 	exit(1);
 }
 
