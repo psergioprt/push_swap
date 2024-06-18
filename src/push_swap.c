@@ -6,7 +6,7 @@
 /*   By: pauldos- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 16:08:31 by pauldos-          #+#    #+#             */
-/*   Updated: 2024/06/13 15:52:46 by pauldos-         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:32:12 by pauldos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ static bool	validate_arguments(char argc, char ***argv)
 		return (false);
 	if (argc == 2 && (*argv)[1][0] == ' ')
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (false);
 	}
 	if (argc == 2 && ((*argv)[1][0] == '\0'
 		|| validate_numbers_signs((*argv)[1]) == false))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (false);
 	}
 	return (true);
